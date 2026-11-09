@@ -1,0 +1,177 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --blush: #F8D7DA;
+    --peach: #FFE5D0;
+    --lavender: #E8DFF5;
+    --cream: #FFF7E8;
+    --sage: #DCE8D5;
+    --rosepink: #C97983;
+  }
+
+  body {
+    background: radial-gradient(circle at 10% 20%, #FFF7E8 0%, #FFF0F2 35%, #F8EEFA 70%, #F1F8EE 100%);
+    background-attachment: fixed;
+    color: #4A3E3D;
+    font-family: 'Nunito', 'Outfit', sans-serif;
+  }
+}
+
+/* Custom soft scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FFF7E8;
+}
+::-webkit-scrollbar-thumb {
+  background: #E8D0D6;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C97983;
+}
+
+/* Custom styles and animations */
+.font-cursive {
+  font-family: 'Caveat', 'Dancing Script', 'Noto Sans Telugu', cursive, sans-serif;
+}
+
+.font-script {
+  font-family: 'Dancing Script', 'Ramabhadra', cursive, sans-serif;
+}
+
+.font-letter {
+  font-family: 'Caveat', 'Noto Sans Telugu', 'Dancing Script', cursive, sans-serif;
+  letter-spacing: 0.02em;
+}
+
+.font-calligraphy {
+  font-family: 'Great Vibes', 'Sacramento', cursive;
+}
+
+.font-serif-elegant {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Falling flower petals keyframes */
+@keyframes petalFall {
+  0% {
+    transform: translate3d(0, -10vh, 0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate3d(100px, 105vh, 0) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.petal-particle {
+  position: fixed;
+  top: -10%;
+  pointer-events: none;
+  z-index: 1;
+  animation: petalFall linear infinite;
+  user-select: none;
+}
+
+/* Pastel Glass Card */
+.pastel-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 16px 36px -10px rgba(201, 121, 131, 0.15), 0 0 0 1px rgba(248, 215, 218, 0.3);
+}
+
+.pastel-card-hover {
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.pastel-card-hover:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 20px 40px -10px rgba(201, 121, 131, 0.25), 0 0 25px rgba(248, 215, 218, 0.6);
+}
+
+/* Scrapbook washi tape effect */
+.washi-tape {
+  background: rgba(248, 215, 218, 0.85);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  position: absolute;
+  height: 20px;
+  width: 90px;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  opacity: 0.9;
+  border-left: 2px dashed rgba(255,255,255,0.6);
+  border-right: 2px dashed rgba(255,255,255,0.6);
+}
+
+.washi-tape-peach {
+  background: rgba(255, 229, 208, 0.9);
+}
+
+.washi-tape-lavender {
+  background: rgba(232, 223, 245, 0.9);
+}
+
+.washi-tape-sage {
+  background: rgba(220, 232, 213, 0.9);
+}
+
+/* Floating animation variants */
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1.5deg);
+  }
+}
+
+.animate-float-gentle {
+  animation: floatGentle 4.5s ease-in-out infinite;
+}
+
+@keyframes candleFlicker {
+  0%, 100% {
+    transform: scale(1) rotate(-1deg);
+    opacity: 0.95;
+    filter: drop-shadow(0 0 8px rgba(255, 180, 50, 0.9));
+  }
+  50% {
+    transform: scale(1.1, 1.15) rotate(1.5deg);
+    opacity: 1;
+    filter: drop-shadow(0 0 14px rgba(255, 200, 70, 1));
+  }
+}
+
+.animate-candle-flame {
+  animation: candleFlicker 0.7s ease-in-out infinite alternate;
+  transform-origin: bottom center;
+}
+
+/* Button pulse for Amma's love */
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  15% { transform: scale(1.08); }
+  30% { transform: scale(1); }
+  45% { transform: scale(1.06); }
+  60% { transform: scale(1); }
+}
+
+.animate-heartbeat {
+  animation: heartbeat 2.2s infinite;
+}
+
